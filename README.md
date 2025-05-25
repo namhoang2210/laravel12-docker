@@ -42,7 +42,7 @@ DB_PASSWORD=secret
 
 ### 3. Build and start Docker containers
 ```
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ### 4. Run database migrations
