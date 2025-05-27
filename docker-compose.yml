@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: docker/app/Dockerfile
     image: laravel-app
+    restart: unless-stopped
     container_name: laravel-app
     volumes:
       - .:/var/www
@@ -14,6 +15,7 @@ services:
 
   nginx:
     image: nginx:alpine
+    restart: unless-stopped
     container_name: laravel-nginx
     ports:
       - "8000:80"
@@ -27,6 +29,7 @@ services:
 
   db:
     image: mysql:8
+    restart: unless-stopped
     container_name: laravel-db
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -42,6 +45,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
     container_name: laravel-phpmyadmin
     restart: unless-stopped
     ports:
